@@ -1,4 +1,6 @@
 var seconds = 00;
+var minutes = 00;
+var hours = 00;
 var tens = 00;
 var appendSeconds = document.getElementById("seconds");
 var appendMinutes = document.getElementById("minutes");
@@ -36,10 +38,12 @@ function startTimer() {
 
 buttonStart.onclick = function () {
   interval = setInterval(startTimer, 1000);
+  buttonStart.disabled = true;
 };
 
 buttonStop.onclick = function () {
   clearInterval(interval);
+  buttonStart.disabled = false;
 };
 
 buttonReset.onclick = function () {
@@ -50,4 +54,5 @@ buttonReset.onclick = function () {
   appendSeconds.innerHTML = seconds;
   appendMinutes.innerHTML = minutes;
   appendHours.innerHTML = hours;
+  buttonStart.disabled = false;
 };
